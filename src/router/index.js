@@ -25,7 +25,7 @@ export default new Router({
     routes: [
         {
             path: '/',
-            redirect: '/home'
+            redirect: '/product'
             // component: HelloWorld
         },
         {
