@@ -5,10 +5,13 @@
             <TopHeader/>
             <div class="main-content">
                 <div class="top-view">
-                    <Topleft></Topleft>
-                    <div class="top-right">
-                        <Topright></Topright>
+                    <div class="top-left">
+                        <Topleft></Topleft>
                     </div>
+                        <Topright></Topright>
+                </div>
+                <div class="low-view">
+
                 </div>
             </div>
         </dv-full-screen-container>
@@ -51,10 +54,14 @@
             flex-direction: column;
         }
 
-        .top-view {
+        .top-view .low-view{
             flex: 1;
             display: flex;
             margin-top: 20px;
+            height: 50%;
+        }
+        .top-left .top-right{
+            width: 45%;
         }
     }
 </style>

@@ -1,5 +1,10 @@
 <template>
-    <dv-charts :option="option3" style="height: 500px;width: 1000px"/>
+    <div class="top-right-cmp">
+        <!--        <div class="chart-name">-->
+        <!--            近7天产能达成率-->
+        <!--        </div>-->
+        <dv-charts :option="option" style="height: 500px;width: 600px"/>
+    </div>
 </template>
 
 <script>
@@ -7,7 +12,7 @@
         name: "topright",
         data() {
             return {
-                option3: {
+                option: {
                     title: {
                         text: '近7天产能达成率'
                     },
@@ -98,6 +103,19 @@
     }
 </script>
 
-<style scoped>
-
+<style lang="less" scoped>
+    .top-right-cmp {
+        position: relative;
+        padding: 0 50px;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        /*.chart-name {*/
+        /*    position: absolute;*/
+        /*    right: 70px;*/
+        /*    text-align: right;*/
+        /*    font-size: 20px;*/
+        /*    top: 10px;*/
+        /*}*/
+    }
 </style>

@@ -1,6 +1,6 @@
 <template>
     <div id="cards">
-        <dv-border-box-13>产能
+
         <div
                 class="card-item"
                 v-for="(card, i) in cards"
@@ -10,7 +10,7 @@
                 <div class="card-header-left">{{ card.title }}</div>
                 <div class="card-header-right">{{ '0' + (i + 1) }}</div>
             </div>
-            <dv-charts class="ring-charts" :option="card.ring"/>
+            <dv-charts class="ring-charts" :option="card.ring" style="white-space: normal"/>
             <div class="card-footer">
                 <div class="card-footer-item">
                     <div class="footer-title">目标产能</div>
@@ -28,8 +28,8 @@
                 </div>
             </div>
         </div>
-        </dv-border-box-13>
     </div>
+
 </template>
 
 <script>
@@ -37,15 +37,15 @@
         name: "topleft",
         data() {
             return {
-                cards:[]
+                cards: []
             }
         },
-        methods:{
-            createData () {
-                const { randomExtend } = this
+        methods: {
+            createData() {
+                const {randomExtend} = this
 
                 this.cards = new Array(2).fill(0).map((foo, i) => ({
-                    title: 'Line' + (i + i),
+                    title: 'Line' + (i + 1),
                     total: {
                         number: [randomExtend(9000, 10000)],
                         content: '{nt}',
@@ -73,7 +73,7 @@
                                 arcLineWidth: 13,
                                 radius: '80%',
                                 data: [
-                                    { name: '资金占比', value: randomExtend(40, 60) }
+                                    {name: '产能达成率', value: randomExtend(40, 60)}
                                 ],
                                 axisLabel: {
                                     show: false
@@ -94,7 +94,7 @@
                                     formatter: '产',
                                     style: {
                                         fill: '#1ed3e5',
-                                        fontSize: 20
+                                        fontSize: 40
                                     }
                                 }
                             }
@@ -103,7 +103,7 @@
                     }
                 }))
             },
-            randomExtend (minNum, maxNum) {
+            randomExtend(minNum, maxNum) {
                 if (arguments.length === 1) {
                     return parseInt(Math.random() * minNum + 1, 10)
                 } else {
@@ -112,7 +112,7 @@
             }
         },
         created() {
-            const { createData } = this
+            const {createData} = this
 
             createData()
 
@@ -125,7 +125,8 @@
     #cards {
         display: flex;
         justify-content: space-between;
-        height: 45%;
+        height: 50%;
+        width: 50%;
 
         .card-item {
             background-color: rgba(6, 30, 93, 0.5);
@@ -137,7 +138,7 @@
 
         .card-header {
             display: flex;
-            height: 50%;
+            height: 20%;
             align-items: center;
             justify-content: space-between;
 
@@ -155,11 +156,11 @@
         }
 
         .ring-charts {
-            height: 55%;
+            height: 60%;
         }
 
         .card-footer {
-            height: 25%;
+            height: 20%;
             display: flex;
             align-items: center;
             justify-content: space-around;
@@ -181,7 +182,6 @@
                 font-size: 20px;
                 color: #1294fb;
                 display: flex;
-                font-size: 18px;
                 align-items: center;
 
                 .dv-digital-flop {
