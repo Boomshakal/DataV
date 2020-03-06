@@ -3,7 +3,7 @@
         <!--        <div class="chart-name">-->
         <!--            近7天产能达成率-->
         <!--        </div>-->
-        <dv-charts :option="option" style="height: 500px;width: 600px"/>
+        <dv-charts :option="option" style="size: auto"/>
     </div>
 </template>
 
@@ -103,19 +103,9 @@
     }
 </script>
 
-<style lang="less" scoped>
-    .top-right-cmp {
-        position: relative;
-        padding: 0 50px;
-        box-sizing: border-box;
-        display: flex;
-        flex-direction: column;
-        /*.chart-name {*/
-        /*    position: absolute;*/
-        /*    right: 70px;*/
-        /*    text-align: right;*/
-        /*    font-size: 20px;*/
-        /*    top: 10px;*/
-        /*}*/
-    }
+<style lang="less">
+.top-right-cmp{
+    width: 100%;
+    height: 100%;
+}
 </style>

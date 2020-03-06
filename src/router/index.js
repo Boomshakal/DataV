@@ -48,49 +48,6 @@ export default new Router({
             name: 'Quality',
             component: Quality
         },
-        // // 课程详情
-        // {
-        //   path:"/course/detail/web/:detailId",
-        //   name:'course.detail',
-        //   component:CourseDetail
-        // },
-        // {
-        //   path:'/login',
-        //   name:'Login',
-        //   component:Login
-        // },
-        // // 购物车的页面
-        // {
-        //   path:"/purchase/shopping_cart",
-        //   name:'purchase.shop',
-        //   component:Cart,
-        //   meta: {
-        //     requiresAuth: true
-        //   }
-        // },
-        // {
-        //  path:'/buy',
-        //   name:'account',
-        //   component:Account,
-        //   meta: {
-        //     requiresAuth: true
-        //   }
-        // },
-        // {
-        //   path:'/my/order',
-        //   name:'my_order',
-        //   component:MyOrder,
-        //   meta: {
-        //     requiresAuth: true
-        //   }
-        // },
-        // {
-        //   path:'/order/pay_success',
-        //   name:'pay_success',
-        //   component:PaySuccess,
-        //   meta: {
-        //     requiresAuth: true
-        //   }
-        // }
+
     ]
 })

@@ -10,7 +10,7 @@
                 <div class="card-header-left">{{ card.title }}</div>
                 <div class="card-header-right">{{ '0' + (i + 1) }}</div>
             </div>
-            <dv-charts class="ring-charts" :option="card.ring" style="white-space: normal"/>
+            <dv-charts class="ring-charts" :option="card.ring" style="size: auto"/>
             <div class="card-footer">
                 <div class="card-footer-item">
                     <div class="footer-title">目标产能</div>
@@ -42,6 +42,7 @@
         },
         methods: {
             createData() {
+
                 const {randomExtend} = this
 
                 this.cards = new Array(2).fill(0).map((foo, i) => ({
@@ -125,69 +126,70 @@
     #cards {
         display: flex;
         justify-content: space-between;
-        height: 50%;
-        width: 50%;
+        height: 100%;
 
-        .card-item {
-            background-color: rgba(6, 30, 93, 0.5);
-            border-top: 2px solid rgba(1, 153, 209, .5);
-            width: 50%;
-            display: flex;
-            flex-direction: column;
-        }
+    .card-item {
+        background-color: rgba(6, 30, 93, 0.5);
+        border-top: 2px solid rgba(1, 153, 209, .5);
+        width: 49%;
+        display: flex;
+        flex-direction: column;
+    }
 
-        .card-header {
-            display: flex;
-            height: 20%;
-            align-items: center;
-            justify-content: space-between;
+    .card-header {
+        display: flex;
+        height: 20%;
+        align-items: center;
+        justify-content: space-between;
 
-            .card-header-left {
-                font-size: 18px;
-                font-weight: bold;
-                padding-left: 20px;
-            }
+    .card-header-left {
+        font-size: 18px;
+        font-weight: bold;
+        padding-left: 20px;
+    }
 
-            .card-header-right {
-                padding-right: 20px;
-                font-size: 40px;
-                color: #03d3ec;
-            }
-        }
+    .card-header-right {
+        padding-right: 20px;
+        font-size: 40px;
+        color: #03d3ec;
+    }
 
-        .ring-charts {
-            height: 60%;
-        }
+    }
 
-        .card-footer {
-            height: 20%;
-            display: flex;
-            align-items: center;
-            justify-content: space-around;
-        }
+    .ring-charts {
+        height: 60%;
+    }
 
-        .card-footer-item {
-            padding: 5px 10px 0px 10px;
-            box-sizing: border-box;
-            width: 40%;
-            background-color: rgba(6, 30, 93, 0.7);
-            border-radius: 3px;
+    .card-footer {
+        height: 20%;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
 
-            .footer-title {
-                font-size: 15px;
-                margin-bottom: 5px;
-            }
+    .card-footer-item {
+        padding: 5px 10px 0px 10px;
+        box-sizing: border-box;
+        width: 40%;
+        background-color: rgba(6, 30, 93, 0.7);
+        border-radius: 3px;
 
-            .footer-detail {
-                font-size: 20px;
-                color: #1294fb;
-                display: flex;
-                align-items: center;
+    .footer-title {
+        font-size: 15px;
+        margin-bottom: 5px;
+    }
 
-                .dv-digital-flop {
-                    margin-right: 5px;
-                }
-            }
-        }
+    .footer-detail {
+        font-size: 20px;
+        color: #1294fb;
+        display: flex;
+        align-items: center;
+
+    .dv-digital-flop {
+        margin-right: 5px;
+    }
+
+    }
+    }
     }
 </style>

@@ -49,7 +49,7 @@
     .nav-center {
         float: left;
         margin-left: 100px;
-        width:
+        width: auto;
     }
 
     .nav-center ul {
