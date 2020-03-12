@@ -1,33 +1,34 @@
 <template>
-    <dv-full-screen-container>
-        <TopHeader/>
-        <el-row class="top-view">
-            <el-col :span="10">
-                <div class="grid-content bg-purple">
-                    <topleft/>
+    <div id="data-view">
+        <dv-full-screen-container>
+            <TopHeader/>
+            <div class="main-content">
+                <div class="top-contnet">
+                    <div class="top-left">
+                        <topleft/>
+                    </div>
+
+                    <div class="top-right">
+                        <topright/>
+                    </div>
+
                 </div>
-            </el-col>
-            <el-col :span="14">
-                <div class="grid-content bg-purple-light">
-                    <topright/>
-                </div>
-            </el-col>
-        </el-row>
-        <el-row class="bottom-view">
-            <el-col :span="9">
-                <div class="grid-content bg-purple">
-                    <bottomleft/>
-                </div>
-            </el-col>
-            <el-col :span="15">
-                <div class="grid-content bg-purple-light">
-                    <bottomright/>
-                </div>
-            </el-col>
-        </el-row>
+                <div class="bottom-content">
+                    <div class="bottom-left">
+                        <bottomleft/>
+                    </div>
+
+                    <div class="bottom-right">
+                        <bottomright/>
+                    </div>
 
 
-    </dv-full-screen-container>
+                </div>
+
+
+            </div>
+        </dv-full-screen-container>
+    </div>
 </template>
 
 <script>
@@ -50,37 +51,61 @@
 </script>
 
 <style lang="less" scoped>
-    .el-row {
-        margin-bottom: 20px;
+    #data-view {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        background-color: #030409;
+        color: #fff;
 
-        &:last-child {
-            margin-bottom: 0;
+        #dv-full-screen-container {
+            background-image: url('./img/bg.png');
+            background-size: 100% 100%;
+            box-shadow: 0 0 3px blue;
+            display: flex;
+            flex-direction: column;
         }
-    }
 
-    .el-col {
-        border-radius: 4px;
-    }
+        .main-content {
+            height: calc(~"100%-100px");
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
 
-    .bg-purple-dark {
-        /*background: #99a9bf;*/
-    }
+        .top-contnet {
+            height: 50%;
+            margin: 0;
+            padding: 0;
+        }
 
-    .bg-purple {
-        /*background: #d3dce6;*/
-    }
+        .bottom-content {
+            height: 50%;
+        }
 
-    .bg-purple-light {
-        /*background: #e5e9f2;*/
-    }
+        .top-left {
+            height: 100%;
+            float: left;
+            width: 45%;
+        }
 
-    .grid-content {
-        border-radius: 4px;
-        min-height: 36px;
-    }
+        .top-right {
+            height: 100%;
+            float: right;
+            width: 55%;
+        }
 
-    .row-bg {
-        padding: 10px 0;
-        /*background-color: #f9fafc;*/
+        .bottom-left {
+            height: 100%;
+            float: left;
+            width: 40%;
+        }
+
+        .bottom-right {
+            height: 100%;
+            float: right;
+            width: 60%;
+        }
     }
 </style>

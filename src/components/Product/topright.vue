@@ -1,9 +1,9 @@
 <template>
-    <div class="top-right-cmp">
+    <div id="top-right-cmp">
         <!--        <div class="chart-name">-->
         <!--            近7天产能达成率-->
         <!--        </div>-->
-        <dv-charts :option="option" style="size: auto"/>
+        <dv-charts class="dv-bar" :option="option"/>
     </div>
 </template>
 
@@ -103,9 +103,14 @@
     }
 </script>
 
-<style lang="less">
-.top-right-cmp{
-    width: 100%;
-    height: 100%;
-}
+<style lang="less" scoped>
+    #top-right-cmp {
+        display: flex;
+        height: 100%;
+
+    }
+    .dv-bar{
+        height: 100%;
+    }
+
 </style>

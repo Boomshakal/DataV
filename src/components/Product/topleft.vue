@@ -10,7 +10,7 @@
                 <div class="card-header-left">{{ card.title }}</div>
                 <div class="card-header-right">{{ '0' + (i + 1) }}</div>
             </div>
-            <dv-charts class="ring-charts" :option="card.ring" style="size: auto"/>
+            <dv-charts class="ring-charts" :option="card.ring" />
             <div class="card-footer">
                 <div class="card-footer-item">
                     <div class="footer-title">目标产能</div>
@@ -131,7 +131,7 @@
     .card-item {
         background-color: rgba(6, 30, 93, 0.5);
         border-top: 2px solid rgba(1, 153, 209, .5);
-        width: 49%;
+        width: 50%;
         display: flex;
         flex-direction: column;
     }
@@ -170,7 +170,7 @@
     .card-footer-item {
         padding: 5px 10px 0px 10px;
         box-sizing: border-box;
-        width: 40%;
+        width: 45%;
         background-color: rgba(6, 30, 93, 0.7);
         border-radius: 3px;
 
