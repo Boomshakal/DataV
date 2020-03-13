@@ -1,7 +1,7 @@
 <template>
     <div class="product-board">
 
-                <dv-scroll-board :config="config" style="size: auto" />
+                <dv-scroll-board :config="config" />
 
     </div>
 </template>
@@ -55,5 +55,7 @@
 </script>
 
 <style scoped>
-
+.product-board{
+    height: 100%;
+}
 </style>

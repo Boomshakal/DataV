@@ -1,9 +1,11 @@
 <template>
-    <el-row :gutter="60">
-        <el-col v-for='(item,index) in datas' :key="index" :span="8">
-            <div class="grid-content bg-purple">{{index}}:{{item}}</div>
-        </el-col>
-    </el-row>
+    <div id="tag">
+        <dv-border-box-6>
+            <el-tag class="bottom-left-tag" v-for="(item,index) in datas" :key="index">
+                <span>{{index}}<br>{{item}}</span>
+            </el-tag>
+        </dv-border-box-6>
+    </div>
 </template>
 
 <script>
@@ -13,7 +15,7 @@
             return {
                 datas: {
                     'name': 'line3(组装)',
-                    'responsible_man_id': '马任红',
+                    'respons': '马任红',
                     'ipqc_user': '王南秀',
                     'ie_user': '蔡志雄',
                     'pqe_user': '李雄伟',
@@ -27,40 +29,34 @@
     }
 </script>
 
-<style  scoped>
-    .el-row {
-        margin-bottom: 20px;
+<style lang="less" scoped>
+    #tag {
+        height: 100%;
+        margin: 0px;
+        padding: 0px;
 
-        &
-        :last-child {
-            margin-bottom: 0;
+    }
+
+    .dv-border-box-2 {
+        height: 100%;
+    }
+
+    .bottom-left-tag {
+
+        margin: 1px;
+        height: 33%;
+
+        width: 33%;
+        background-color: rgba(6, 30, 93, 0.5);;
+        border: 2px solid rgba(1, 153, 209, .5);
+        text-align: center;
+
+        span {
+            position: relative;
+            top: 30%;
+            color: white;
+            font-size: large;
+            font-weight: bold;
         }
-
-    }
-
-    .el-col {
-        border-radius: 4px;
-    }
-
-    .bg-purple-dark {
-        background: #99a9bf;
-    }
-
-    .bg-purple {
-        background: #d3dce6;
-    }
-
-    .bg-purple-light {
-        background: #e5e9f2;
-    }
-
-    .grid-content {
-        border-radius: 4px;
-        min-height: 36px;
-    }
-
-    .row-bg {
-        padding: 10px 0;
-        background-color: #f9fafc;
     }
 </style>
