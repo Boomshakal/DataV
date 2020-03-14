@@ -8,98 +8,57 @@
 </template>
 
 <script>
+    // import { changeDefaultConfig } from '@jiaminghi/charts'
     export default {
         name: "topright",
+
         data() {
             return {
-                option: {
+                option : {
                     title: {
-                        text: '近7天产能达成率'
-                    },
-                    legend: {
-                        data: ['降雨量', '气温'],
-                        bottom: 10
+                        text: '周销售额趋势'
                     },
                     xAxis: {
-                        data: [
-                            '周一', '周二', '周三', '周四', '周五', '周六',
-                            '周日'
-                        ],
-                        axisLabel: {
-                            style: {
-                                rotate: 20,
-                                textAlign: 'left',
-                                textBaseline: 'top'
-                            }
-                        },
-                        axisTick: {
-                            show: false
-                        }
+                        name: '第一周',
+                        data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
                     },
-                    yAxis: [
-                        {
-                            name: '降雨量',
-                            data: 'value',
-                            min: 0,
-                            max: 100,
-                            interval: 20,
-                            splitLine: {
-                                style: {
-                                    lineDash: [3, 3]
-                                }
-                            },
-                            axisLabel: {
-                                formatter: '{value} %'
-                            },
-                            axisTick: {
-                                show: false
-                            }
-                        },
-                        {
-                            name: '气温',
-                            data: 'value',
-                            position: 'right',
-                            min: 0,
-                            max: 30,
-                            interval: 5,
-                            splitLine: {
-                                show: false
-                            },
-                            axisLabel: {
-                                formatter: '{value} °C',
-                            },
-                            axisTick: {
-                                show: false
-                            }
-                        }
-                    ],
+
+                    yAxis: {
+                        name: '销售额',
+                        data: 'value',
+                        max: 4000
+                    },
                     series: [
                         {
-                            name: '降雨量',
-                            data: [
-                                94, 91, 90, 85, 75, 85,
-                                65,
-                            ],
+                            data: [1200, 2130, 1900, 2100, 1500, 4200, 4485],
                             type: 'bar',
+                            stack: 'a',
                             gradient: {
                                 color: ['#37a2da', '#67e0e3']
-                            },
-                            animationCurve: 'easeOutBounce'
+                            }
                         },
                         {
-                            name: '气温',
-                            data: [
-                                23, 18, 16, 14, 10, 8,
-                                6,
-                            ],
-                            type: 'line',
-                            yAxisIndex: 1,
-                            animationCurve: 'easeOutBounce'
+                            data: [2100, 2230, 1900, 2500, 2581, 2200, 1985],
+                            type: 'bar',
+                            stack: 'b',
+                            gradient: {
+                                color: ['#e062ae', '#e690d1']
+                            }
+                        },
+                        {
+                            data: [1200, 2230, 1200, 2100, 2311, 4200, 2285],
+                            type: 'bar',
+                            stack: 'c',
+                            gradient: {
+                                color: ['#ff9f7f', '#ffdb5c']
+                            }
+
                         }
                     ]
                 }
             }
-        }
+        },
+
     }
 </script>
 
@@ -107,9 +66,12 @@
     #top-right-cmp {
         display: flex;
         height: 100%;
+        background-color: rgba(6, 30, 93, 0.5);
+        border-top: 2px solid rgba(1, 153, 209, .5);
 
     }
-    .dv-bar{
+
+    .dv-bar {
         height: 100%;
     }
 

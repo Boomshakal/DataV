@@ -1,10 +1,6 @@
 <template>
-    <div id="tag">
-        <dv-border-box-6>
-            <el-tag class="bottom-left-tag" v-for="(item,index) in datas" :key="index">
-                <span>{{index}}<br>{{item}}</span>
-            </el-tag>
-        </dv-border-box-6>
+    <div id="bar-line">
+        <dv-charts class="bottom-left-bar-line" :option="option"/>
     </div>
 </template>
 
@@ -13,16 +9,108 @@
         name: "bottomleft",
         data() {
             return {
-                datas: {
-                    'name': 'line3(组装)',
-                    'respons': '马任红',
-                    'ipqc_user': '王南秀',
-                    'ie_user': '蔡志雄',
-                    'pqe_user': '李雄伟',
-                    'te_user': '林叶',
-                    'me_user': '翁华中',
-                    'pe_user': '王框框',
-                    'pe_user1': '王框框',
+                option: {
+                    title: {
+                        text: '气温与降雨量走势图'
+                    },
+                    legend: {
+                        data: ['降雨量', '气温'],
+                        bottom: 10
+                    },
+                    xAxis: {
+                        data: [
+                            '一月份', '二月份', '三月份', '四月份', '五月份', '六月份',
+                            '七月份', '八月份', '九月份', '十月份', '十一月份', '十二月份'
+                        ],
+                        axisLabel: {
+                            style: {
+                                rotate: 20,
+                                textAlign: 'left',
+                                textBaseline: 'top'
+                            }
+                        },
+                        axisTick: {
+                            show: false
+                        }
+                    },
+                    yAxis: [
+                        {
+                            name: '降雨量',
+                            data: 'value',
+                            min: 0,
+                            max: 300,
+                            interval: 50,
+                            splitLine: {
+                                style: {
+                                    lineDash: [3, 3]
+                                }
+                            },
+                            axisLabel: {
+                                formatter: '{value} ml'
+                            },
+                            axisTick: {
+                                show: false
+                            }
+                        },
+                        {
+                            name: '气温',
+                            data: 'value',
+                            position: 'right',
+                            min: 0,
+                            max: 30,
+                            interval: 5,
+                            splitLine: {
+                                show: false
+                            },
+                            axisLabel: {
+                                formatter: '{value} °C',
+                            },
+                            axisTick: {
+                                show: false
+                            }
+                        }
+                    ],
+                    series: [
+                        {
+                            name: '降雨量',
+                            data: [
+                                175, 125, 90, 130, 45, 65,
+                                65, 47, 50, 52, 45, 37
+                            ],
+                            type: 'bar',
+                            stack:'a',
+                            gradient: {
+                                color: ['#37a2da', '#67e0e3']
+                            },
+                            animationCurve: 'easeOutBounce'
+                        },
+
+                        {
+                            name: '降雨量',
+                            data: [
+                                65, 47, 50, 52, 45, 37,
+                                175, 125, 90, 130, 45, 65
+
+                            ],
+                            type: 'bar',
+                            stack:'a',
+                            gradient: {
+                                color: ['#ff9f7f', '#ffdb5c']
+                            },
+                            animationCurve: 'easeOutBounce'
+                        },
+
+                        {
+                            name: '气温',
+                            data: [
+                                23, 18, 16, 14, 10, 8,
+                                6, 6, 6, 6, 6, 5
+                            ],
+                            type: 'line',
+                            yAxisIndex: 1,
+                            animationCurve: 'easeOutBounce'
+                        }
+                    ]
                 }
             }
         }
@@ -30,33 +118,15 @@
 </script>
 
 <style lang="less" scoped>
-    #tag {
+    #bar-line {
         height: 100%;
         margin: 0px;
         padding: 0px;
 
-    }
+        .bottom-left-bar-line {
+            height: 100%;
 
-    .dv-border-box-2 {
-        height: 100%;
-    }
-
-    .bottom-left-tag {
-
-        margin: 1px;
-        height: 33%;
-
-        width: 33%;
-        background-color: rgba(6, 30, 93, 0.5);;
-        border: 2px solid rgba(1, 153, 209, .5);
-        text-align: center;
-
-        span {
-            position: relative;
-            top: 30%;
-            color: white;
-            font-size: large;
-            font-weight: bold;
         }
+
     }
 </style>

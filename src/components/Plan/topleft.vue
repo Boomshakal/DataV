@@ -1,35 +1,20 @@
 <template>
-    <div id="cards">
-
-        <div
-                class="card-item"
-                v-for="(card, i) in cards"
-                :key="card.title"
-        >
-            <div class="card-header">
-                <div class="card-header-left">{{ card.title }}</div>
-                <div class="card-header-right">{{ '0' + (i + 1) }}</div>
+    <div id="top-left-content">
+        <div class="gauge">
+            <div class="top-gauge">
+                <dv-charts :option="option1" />
             </div>
-            <dv-charts class="ring-charts" :option="card.ring" />
-            <div class="card-footer">
-                <div class="card-footer-item">
-                    <div class="footer-title">目标产能</div>
-                    <div class="footer-detail">
-                        <dv-digital-flop :config="card.total" style="width:70%;height:35px;"/>
-                        个
-                    </div>
-                </div>
-                <div class="card-footer-item">
-                    <div class="footer-title">实际产能</div>
-                    <div class="footer-detail">
-                        <dv-digital-flop :config="card.num" style="width:70%;height:35px;"/>
-                        个
-                    </div>
-                </div>
+            <div class="bottom-gauge">
+                <dv-charts :option="option2"/>
             </div>
         </div>
+        <div class="ring">
+            <dv-charts :option="option3"/>
+        </div>
+        <div class="bar-line">
+            <dv-charts :option="option4"/>
+        </div>
     </div>
-
 </template>
 
 <script>
@@ -37,159 +22,214 @@
         name: "topleft",
         data() {
             return {
-                cards: []
-            }
-        },
-        methods: {
-            createData() {
-
-                const {randomExtend} = this
-
-                this.cards = new Array(2).fill(0).map((foo, i) => ({
-                    title: 'Line' + (i + 1),
-                    total: {
-                        number: [randomExtend(9000, 10000)],
-                        content: '{nt}',
-                        textAlign: 'right',
-                        style: {
-                            fill: '#ea6027',
-                            fontWeight: 'bold'
-                        }
+                option1: {
+                    title: {
+                        text: '剩余油量表'
                     },
-                    num: {
-                        number: [randomExtend(30, 60)],
-                        content: '{nt}',
-                        textAlign: 'right',
-                        style: {
-                            fill: '#26fcd8',
-                            fontWeight: 'bold'
+                    series: [
+                        {
+                            type: 'gauge',
+                            data: [{name: 'itemA', value: 55}],
+                            axisLabel: {
+                                formatter: '{value}%'
+                            },
+                            details: {
+                                show: true,
+                                offset: [0, 40],
+                                formatter: '剩余{value}%'
+                            },
+                            animationCurve: 'easeOutBack'
                         }
+                    ]
+                },
+                option2: {
+                    title: {
+                        text: '剩余油量表'
                     },
-                    ring: {
-                        series: [
-                            {
-                                type: 'gauge',
-                                startAngle: -Math.PI / 2,
-                                endAngle: Math.PI * 1.5,
-                                arcLineWidth: 13,
-                                radius: '80%',
-                                data: [
-                                    {name: '产能达成率', value: randomExtend(40, 60)}
-                                ],
-                                axisLabel: {
-                                    show: false
-                                },
-                                axisTick: {
-                                    show: false
-                                },
-                                pointer: {
-                                    show: false
-                                },
-                                backgroundArc: {
-                                    style: {
-                                        stroke: '#224590'
-                                    }
-                                },
-                                details: {
-                                    show: true,
-                                    formatter: '产',
-                                    style: {
-                                        fill: '#1ed3e5',
-                                        fontSize: 40
-                                    }
+                    series: [
+                        {
+                            type: 'gauge',
+                            data: [{name: 'itemA', value: 55}],
+                            axisLabel: {
+                                formatter: '{value}%'
+                            },
+                            details: {
+                                show: true,
+                                offset: [0, 40],
+                                formatter: '剩余{value}%'
+                            },
+                            animationCurve: 'easeOutBack'
+                        }
+                    ]
+                },
+                option3: {
+                    series: [
+                        {
+                            type: 'gauge',
+                            startAngle: -Math.PI / 2,
+                            endAngle: Math.PI * 1.5,
+                            arcLineWidth: 25,
+                            data: [
+                                {name: 'itemA', value: 65, gradient: ['#03c2fd', '#1ed3e5', '#2fded6']}
+                            ],
+                            axisLabel: {
+                                show: false
+                            },
+                            axisTick: {
+                                show: false
+                            },
+                            pointer: {
+                                show: false
+                            },
+                            dataItemStyle: {
+                                lineCap: 'round'
+                            },
+                            details: {
+                                show: true,
+                                formatter: '{value}%',
+                                style: {
+                                    fill: '#1ed3e5',
+                                    fontSize: 35
                                 }
                             }
+                        }
+                    ]
+                },
+                option4: {
+                    title: {
+                        text: '气温与降雨量走势图'
+                    },
+                    legend: {
+                        data: ['降雨量', '气温'],
+                        bottom: 10
+                    },
+                    xAxis: {
+                        data: [
+                            '一月份', '二月份', '三月份', '四月份', '五月份', '六月份',
+                            '七月份', '八月份', '九月份', '十月份', '十一月份', '十二月份'
                         ],
-                        color: ['#03d3ec']
-                    }
-                }))
-            },
-            randomExtend(minNum, maxNum) {
-                if (arguments.length === 1) {
-                    return parseInt(Math.random() * minNum + 1, 10)
-                } else {
-                    return parseInt(Math.random() * (maxNum - minNum + 1) + minNum, 10)
+                        axisLabel: {
+                            style: {
+                                rotate: 20,
+                                textAlign: 'left',
+                                textBaseline: 'top'
+                            }
+                        },
+                        axisTick: {
+                            show: false
+                        }
+                    },
+                    yAxis: [
+                        {
+                            name: '降雨量',
+                            data: 'value',
+                            min: 0,
+                            max: 300,
+                            interval: 50,
+                            splitLine: {
+                                style: {
+                                    lineDash: [3, 3]
+                                }
+                            },
+                            axisLabel: {
+                                formatter: '{value} ml'
+                            },
+                            axisTick: {
+                                show: false
+                            }
+                        },
+                        {
+                            name: '气温',
+                            data: 'value',
+                            position: 'right',
+                            min: 0,
+                            max: 30,
+                            interval: 5,
+                            splitLine: {
+                                show: false
+                            },
+                            axisLabel: {
+                                formatter: '{value} °C',
+                            },
+                            axisTick: {
+                                show: false
+                            }
+                        }
+                    ],
+                    series: [
+                        {
+                            name: '降雨量',
+                            data: [
+                                175, 125, 90, 130, 45, 65,
+                                65, 47, 50, 52, 45, 37
+                            ],
+                            type: 'bar',
+                            gradient: {
+                                color: ['#37a2da', '#67e0e3']
+                            },
+                            animationCurve: 'easeOutBounce'
+                        },
+                        {
+                            name: '气温',
+                            data: [
+                                23, 18, 16, 14, 10, 8,
+                                6, 6, 6, 6, 6, 5
+                            ],
+                            type: 'line',
+                            yAxisIndex: 1,
+                            animationCurve: 'easeOutBounce'
+                        }
+                    ]
                 }
+
             }
         },
+        methods: {},
         created() {
-            const {createData} = this
 
-            createData()
-
-            setInterval(this.createData, 30000)
         }
     }
 </script>
 
 <style lang="less" scoped>
-    #cards {
-        display: flex;
-        justify-content: space-between;
+    #top-left-content {
         height: 100%;
-
-    .card-item {
+        width: 100%;
+        margin: 0;
+        padding: 0;
         background-color: rgba(6, 30, 93, 0.5);
         border-top: 2px solid rgba(1, 153, 209, .5);
-        width: 50%;
-        display: flex;
-        flex-direction: column;
-    }
 
-    .card-header {
-        display: flex;
-        height: 20%;
-        align-items: center;
-        justify-content: space-between;
 
-    .card-header-left {
-        font-size: 18px;
-        font-weight: bold;
-        padding-left: 20px;
-    }
+        .gauge {
+            height: 100%;
+            width: 33%;
+            margin: 0;
+            padding: 0;
 
-    .card-header-right {
-        padding-right: 20px;
-        font-size: 40px;
-        color: #03d3ec;
-    }
+            float: left;
 
-    }
+            .top-gauge {
+                height: 50%;
+                width: 100%;
+            }
 
-    .ring-charts {
-        height: 60%;
-    }
+            .bottom-gauge {
+                height: 50%;
+                width: 100%;
+            }
+        }
 
-    .card-footer {
-        height: 20%;
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-    }
+        .ring {
+            height: 100%;
+            width: 33%;
+            float: left;
+        }
 
-    .card-footer-item {
-        padding: 5px 10px 0px 10px;
-        box-sizing: border-box;
-        width: 45%;
-        background-color: rgba(6, 30, 93, 0.7);
-        border-radius: 3px;
-
-    .footer-title {
-        font-size: 15px;
-        margin-bottom: 5px;
-    }
-
-    .footer-detail {
-        font-size: 20px;
-        color: #1294fb;
-        display: flex;
-        align-items: center;
-
-    .dv-digital-flop {
-        margin-right: 5px;
-    }
-
-    }
-    }
+        .bar-line {
+            height: 100%;
+            width: 33%;
+            float: left;
+        }
     }
 </style>

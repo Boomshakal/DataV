@@ -60,5 +60,69 @@
     }
 </script>
 
-<style scoped>
+<style lang="less" scoped>
+    #data-view {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        background-color: #030409;
+        color: #fff;
+
+        #dv-full-screen-container {
+            background-image: url('./img/bg.png');
+            background-size: 100% 100%;
+            box-shadow: 0 0 3px blue;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .main-content {
+            height: 100%;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .top-contnet {
+            height: 45%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .bottom-content {
+            height: 55%;
+        }
+
+        .top-left {
+            height: 100%;
+            float: left;
+            width: 45%;
+        }
+
+        .top-middle {
+            height: 100%;
+            width: 15%;
+            float: left;
+        }
+
+        .top-right {
+            height: 100%;
+            float: left;
+            width: 40%;
+        }
+
+        .bottom-left {
+            height: 100%;
+            float: left;
+            width: 40%;
+        }
+
+        .bottom-right {
+            height: 100%;
+            float: right;
+            width: 60%;
+        }
+
+    }
 </style>

@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <dv-active-ring-chart :config="config" style="width:200px;height:200px"/>
+    <div class="top-middle-ring">
+        <dv-active-ring-chart class="dv-ring" :config="config"/>
     </div>
 </template>
 
@@ -39,6 +39,20 @@
     }
 </script>
 
-<style scoped>
+<style lang="less" scoped>
+    .top-middle-ring {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
 
+        background-color: rgba(6, 30, 93, 0.5);
+        border-top: 2px solid rgba(1, 153, 209, .5);
+
+    }
+
+    .dv-ring {
+        height: 100%;
+    }
 </style>

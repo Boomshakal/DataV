@@ -1,8 +1,6 @@
 <template>
-    <div class="product-board">
-
-                <dv-scroll-board :config="config" />
-
+    <div id="table">
+        <dv-scroll-board class="plan-table" :config="config" />
     </div>
 </template>
 
@@ -11,7 +9,6 @@
         name: "bottomright",
         data() {
             return {
-                // data写好默认配置
                 config: {
                     header: ['列1', '列2', '列3','列4', '列5', '列6','列7', '列8'],
                     data: [],
@@ -54,8 +51,13 @@
     }
 </script>
 
-<style scoped>
-.product-board{
+<style lang="less" scoped>
+#table{
     height: 100%;
+
+    .plan-table{
+        height: 100%;
+        width: 100%;
+    }
 }
 </style>
