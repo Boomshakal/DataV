@@ -1,7 +1,9 @@
 <template>
     <div id="data-view">
         <dv-full-screen-container>
-            <TopHeader/>
+            <div class="tophead">
+                <TopHeader/>
+            </div>
             <div class="main-content">
                 <div class="top-contnet">
                     <div class="top-left">
@@ -16,11 +18,11 @@
 
                 </div>
                 <div class="bottom-content">
-                    <div class="bottom-left">
-                        <bottomleft/>
-                    </div>
                     <div class="bottom-ranking">
                         <Bottomranking/>
+                    </div>
+                    <div class="bottom-left">
+                        <bottomleft/>
                     </div>
                     <div class="bottom-right">
                         <bottomright/>
@@ -28,8 +30,9 @@
 
 
                 </div>
-
-
+            </div>
+            <div class="bottomfoot">
+                <BottomFoot/>
             </div>
         </dv-full-screen-container>
     </div>
@@ -43,6 +46,7 @@
     import Bottomleft from "@/components/Plan/bottomleft"
     import Bottomright from "@/components/Plan/bottomright"
     import Bottomranking from "@/components/Plan/bottom-ranking"
+    import BottomFoot from "@/components/Plan/bottomfoot"
 
     export default {
         name: "Plan",
@@ -58,7 +62,8 @@
             Topright,
             Bottomleft,
             Bottomright,
-            Bottomranking
+            Bottomranking,
+            BottomFoot
 
         }
     }
@@ -82,21 +87,32 @@
         }
 
         .main-content {
-            height: 100%;
+            height: 85%;
             flex: 1;
             display: flex;
             flex-direction: column;
+
+            .top-contnet {
+                height: 45%;
+                margin: 0;
+                padding: 0;
+            }
+
+            .bottom-content {
+                height: 55%;
+            }
         }
 
-        .top-contnet {
-            height: 45%;
+        .tophead {
+            height: 10%;
             margin: 0;
             padding: 0;
         }
 
-        .bottom-content {
-            height: 55%;
+        .bottomfoot {
+            height: 5%;
         }
+
 
         .top-left {
             height: 100%;
