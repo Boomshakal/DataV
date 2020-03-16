@@ -1,7 +1,9 @@
 <template>
     <div id="data-view">
         <dv-full-screen-container>
-            <TopHeader/>
+            <div class="tophead">
+                <TopHeader/>
+            </div>
             <div class="main-content">
                 <div class="top-contnet">
                     <div class="top-left">
@@ -27,6 +29,9 @@
 
 
             </div>
+            <div class="bottomfoot">
+                <BottomFoot/>
+            </div>
         </dv-full-screen-container>
     </div>
 </template>
@@ -37,6 +42,7 @@
     import TopHeader from "@/components/Product/topHeader";
     import Bottomleft from "@/components/Product/bottomleft"
     import Bottomright from "@/components/Product/bottomright"
+    import BottomFoot from "@/components/Product/bottomfoot"
 
     export default {
         name: "Product",
@@ -45,7 +51,8 @@
             Bottomleft,
             TopHeader,
             Topright,
-            Topleft
+            Topleft,
+            BottomFoot
         }
     }
 </script>
@@ -66,46 +73,59 @@
             display: flex;
             flex-direction: column;
         }
-
-        .main-content {
-            height: calc(~"100%-100px");
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .top-contnet {
-            height: 50%;
+        .tophead {
+            height: 10%;
             margin: 0;
             padding: 0;
         }
 
-        .bottom-content {
-            height: 50%;
+        .bottomfoot {
+            height: 5%;
         }
 
-        .top-left {
-            height: 100%;
-            float: left;
-            width: 45%;
+        .main-content {
+            height: 85%;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+
+            .top-contnet {
+                height: 50%;
+                margin: 0;
+                padding: 0;
+
+                .top-left {
+                    height: 100%;
+                    float: left;
+                    width: 45%;
+                }
+
+                .top-right {
+                    height: 100%;
+                    float: right;
+                    width: 55%;
+                }
+            }
+
+            .bottom-content {
+                height: 50%;
+
+                .bottom-left {
+                    height: 100%;
+                    float: left;
+                    width: 40%;
+                }
+
+                .bottom-right {
+                    height: 100%;
+                    float: right;
+                    width: 60%;
+                }
+            }
+
+
         }
 
-        .top-right {
-            height: 100%;
-            float: right;
-            width: 55%;
-        }
 
-        .bottom-left {
-            height: 100%;
-            float: left;
-            width: 40%;
-        }
-
-        .bottom-right {
-            height: 100%;
-            float: right;
-            width: 60%;
-        }
     }
 </style>
