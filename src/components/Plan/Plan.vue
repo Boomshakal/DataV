@@ -19,7 +19,9 @@
                     <div class="bottom-left">
                         <bottomleft/>
                     </div>
-
+                    <div class="bottom-ranking">
+                        <Bottomranking/>
+                    </div>
                     <div class="bottom-right">
                         <bottomright/>
                     </div>
@@ -40,6 +42,7 @@
     import TopHeader from "@/components/Plan/topHeader";
     import Bottomleft from "@/components/Plan/bottomleft"
     import Bottomright from "@/components/Plan/bottomright"
+    import Bottomranking from "@/components/Plan/bottom-ranking"
 
     export default {
         name: "Plan",
@@ -54,7 +57,8 @@
             Topmiddle,
             Topright,
             Bottomleft,
-            Bottomright
+            Bottomright,
+            Bottomranking
 
         }
     }
@@ -115,13 +119,19 @@
         .bottom-left {
             height: 100%;
             float: left;
-            width: 40%;
+            width: 35%;
         }
 
         .bottom-right {
             height: 100%;
-            float: right;
-            width: 60%;
+            float: left;
+            width: 50%;
+        }
+
+        .bottom-ranking {
+            height: 100%;
+            float: left;
+            width: 15%;
         }
 
     }
