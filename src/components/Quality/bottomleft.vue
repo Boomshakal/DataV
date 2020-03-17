@@ -11,16 +11,16 @@
             return {
                 option: {
                     title: {
-                        text: '气温与降雨量走势图'
+                        text: '月整机车间走势图'
                     },
                     legend: {
-                        data: ['降雨量', '气温'],
+                        data: ['百分比',],
                         bottom: 10
                     },
                     xAxis: {
                         data: [
-                            '一月份', '二月份', '三月份', '四月份', '五月份', '六月份',
-                            '七月份', '八月份', '九月份', '十月份', '十一月份', '十二月份'
+                            '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15',
+                            '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31'
                         ],
                         axisLabel: {
                             style: {
@@ -35,50 +35,33 @@
                     },
                     yAxis: [
                         {
-                            name: '降雨量',
+                            name: '百分比',
                             data: 'value',
                             min: 0,
-                            max: 300,
-                            interval: 50,
+                            max: 100,
+                            interval: 20,
                             splitLine: {
                                 style: {
                                     lineDash: [3, 3]
                                 }
                             },
                             axisLabel: {
-                                formatter: '{value} ml'
+                                formatter: '{value} %'
                             },
                             axisTick: {
                                 show: false
                             }
                         },
-                        {
-                            name: '气温',
-                            data: 'value',
-                            position: 'right',
-                            min: 0,
-                            max: 30,
-                            interval: 5,
-                            splitLine: {
-                                show: false
-                            },
-                            axisLabel: {
-                                formatter: '{value} °C',
-                            },
-                            axisTick: {
-                                show: false
-                            }
-                        }
                     ],
                     series: [
                         {
                             name: '降雨量',
                             data: [
-                                175, 125, 90, 130, 45, 65,
-                                65, 47, 50, 52, 45, 37
+                                98, 96, 90, 99, 100, 96, 98, 96, 90, 99, 100, 96, 98, 96, 90, 99, 100, 96,
+                                98, 96, 90, 99, 100, 96, 98, 96, 90, 99, 100, 96, 89
                             ],
                             type: 'bar',
-                            stack:'a',
+                            stack: 'a',
                             gradient: {
                                 color: ['#37a2da', '#67e0e3']
                             },
@@ -86,30 +69,19 @@
                         },
 
                         {
-                            name: '降雨量',
+                            name: '百分比',
                             data: [
-                                65, 47, 50, 52, 45, 37,
-                                175, 125, 90, 130, 45, 65
+                                98, 96, 90, 99, 100, 96, 98, 96, 90, 99, 100, 96, 98, 96, 90, 99, 100, 96,
+                                98, 96, 90, 99, 100, 96, 98, 96, 90, 99, 100, 96, 89
 
                             ],
-                            type: 'bar',
-                            stack:'a',
+                            type: 'line',
+                            // stack: 'a',
                             gradient: {
                                 color: ['#ff9f7f', '#ffdb5c']
                             },
                             animationCurve: 'easeOutBounce'
                         },
-
-                        {
-                            name: '气温',
-                            data: [
-                                23, 18, 16, 14, 10, 8,
-                                6, 6, 6, 6, 6, 5
-                            ],
-                            type: 'line',
-                            yAxisIndex: 1,
-                            animationCurve: 'easeOutBounce'
-                        }
                     ]
                 }
             }

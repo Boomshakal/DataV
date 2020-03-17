@@ -1,63 +1,104 @@
 <template>
-    <div id="table">
-        <dv-scroll-board class="plan-table" :config="config" />
+    <div id="bar-line">
+        <dv-charts class="bottom-right-bar-line" :option="option"/>
     </div>
 </template>
 
 <script>
     export default {
-        name: "bottomright",
+        name: "bottomleft",
         data() {
             return {
-                config: {
-                    header: ['列1', '列2', '列3','列4', '列5', '列6','列7', '列8'],
-                    data: [],
-                    index: true,
-                    columnWidth: [80],
-                    align: ['center']
+                option: {
+                    title: {
+                        text: '月部件车间走势图'
+                    },
+                    legend: {
+                        data: ['百分比',],
+                        bottom: 10
+                    },
+                    xAxis: {
+                        data: [
+                            '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15',
+                            '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31'
+                        ],
+                        axisLabel: {
+                            style: {
+                                rotate: 20,
+                                textAlign: 'left',
+                                textBaseline: 'top'
+                            }
+                        },
+                        axisTick: {
+                            show: false
+                        }
+                    },
+                    yAxis: [
+                        {
+                            name: '百分比',
+                            data: 'value',
+                            min: 0,
+                            max: 100,
+                            interval: 20,
+                            splitLine: {
+                                style: {
+                                    lineDash: [3, 3]
+                                }
+                            },
+                            axisLabel: {
+                                formatter: '{value} %'
+                            },
+                            axisTick: {
+                                show: false
+                            }
+                        },
+                    ],
+                    series: [
+                        {
+                            name: '降雨量',
+                            data: [
+                                98, 96, 90, 99, 100, 96, 98, 96, 90, 99, 100, 96, 98, 96, 90, 99, 100, 96,
+                                98, 96, 90, 99, 100, 96, 98, 96, 90, 99, 100, 96, 89
+                            ],
+                            type: 'bar',
+                            stack: 'a',
+                            gradient: {
+                                color: ['#37a2da', '#67e0e3']
+                            },
+                            animationCurve: 'easeOutBounce'
+                        },
+
+                        {
+                            name: '百分比',
+                            data: [
+                                98, 96, 90, 99, 100, 96, 98, 96, 90, 99, 100, 96, 98, 96, 90, 99, 100, 96,
+                                98, 96, 90, 99, 100, 96, 98, 96, 90, 99, 100, 96, 89
+
+                            ],
+                            type: 'line',
+                            // stack: 'a',
+                            gradient: {
+                                color: ['#ff9f7f', '#ffdb5c']
+                            },
+                            animationCurve: 'easeOutBounce'
+                        },
+                    ]
                 }
             }
-        },
-        methods: {
-            updateHandler() {
-                const {config, getScrollBoardData} = this
-
-                const data = getScrollBoardData()
-
-                // 生成新的config 并使用新的data覆盖原有config中的data
-                this.config = {
-                    ...config,
-                    data
-                }
-            },
-            getScrollBoardData() {
-                return [
-                    ['行1列1', '行1列2', '行1列3','行1列4', '行1列5', '行1列6','行1列7', '行1列8'],
-                    ['行2列1', '行2列2', '行2列3','行2列4', '行2列5', '行2列6','行2列7', '行2列8'],
-                    ['行3列1', '行3列2', '行3列3','行3列4', '行3列5', '行3列6','行3列7', '行3列8'],
-                    ['行4列1', '行4列2', '行4列3','行4列4', '行4列5', '行4列6','行4列7', '行4列8'],
-                    ['行5列1', '行5列2', '行5列3','行5列4', '行5列5', '行5列6','行5列7', '行5列8'],
-                    ['行6列1', '行6列2', '行6列3','行6列4', '行6列5', '行6列6','行6列7', '行6列8'],
-                    ['行7列1', '行7列2', '行7列3','行7列4', '行7列5', '行7列6','行7列7', '行7列8'],
-                    ['行8列1', '行8列2', '行8列3','行8列4', '行8列5', '行8列6','行8列7', '行8列8'],
-                    ['行9列1', '行9列2', '行9列3','行9列4', '行9列5', '行9列6','行9列7', '行9列8'],
-                    ['行10列1', '行10列2', '行10列3','行10列4', '行10列5', '行10列6','行10列7', '行10列8'],
-                ]
-            }
-        },
-        created() {
-            this.updateHandler()
         }
     }
 </script>
 
 <style lang="less" scoped>
-#table{
-    height: 100%;
-
-    .plan-table{
+    #bar-line {
         height: 100%;
-        width: 100%;
+        margin: 0px;
+        padding: 0px;
+
+        .bottom-right-bar-line {
+            height: 100%;
+
+        }
+
     }
-}
 </style>

@@ -35,12 +35,12 @@
 </template>
 
 <script>
-    import Topleft from "@/components/Product/topleft";
-    import Topright from "@/components/Product/topright";
-    import TopHeader from "@/components/Product/topHeader";
-    import Bottomleft from "@/components/Product/bottomleft"
-    import Bottomright from "@/components/Product/bottomright"
-    import BottomFoot from "@/components/Product/bottomfoot"
+    import Topleft from "@/components/Quality/topleft";
+    import Topright from "@/components/Quality/topright";
+    import TopHeader from "@/components/Quality/topHeader";
+    import Bottomleft from "@/components/Quality/bottomleft"
+    import Bottomright from "@/components/Quality/bottomright"
+    import BottomFoot from "@/components/Quality/bottomfoot"
 
     export default {
         name: "Quality",
