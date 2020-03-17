@@ -33,7 +33,7 @@
     }
 </script>
 
-<style scoped>
+<style lang="less" scoped>
     .el-header {
         border-bottom: #c9c9c9;
         box-shadow: 0 0.5px 0.5px 0 #c9c9c9;
@@ -57,6 +57,7 @@
     }
 
     .nav-center ul li {
+        list-style-type: none;
         float: left;
         margin: 0 5px;
         /*width: 100px;*/
