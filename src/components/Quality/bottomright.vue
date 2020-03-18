@@ -1,6 +1,7 @@
 <template>
     <div id="bar-line">
         <dv-charts class="bottom-right-bar-line" :option="option"/>
+        <dv-scroll-ranking-board class="bottom-right-ranking" :config="config" />
     </div>
 </template>
 
@@ -83,6 +84,38 @@
                             animationCurve: 'easeOutBounce'
                         },
                     ]
+                },
+                config:{
+                    data: [
+                        {
+                            name: '周口',
+                            value: 55
+                        },
+                        {
+                            name: '南阳',
+                            value: 120
+                        },
+                        {
+                            name: '西峡',
+                            value: 78
+                        },
+                        {
+                            name: '驻马店',
+                            value: 66
+                        },
+                        {
+                            name: '新乡',
+                            value: 80
+                        },
+                        {
+                            name: '信阳',
+                            value: 45
+                        },
+                        {
+                            name: '漯河',
+                            value: 29
+                        }
+                    ]
                 }
             }
         }
@@ -96,8 +129,14 @@
         padding: 0px;
 
         .bottom-right-bar-line {
+            float: left;
             height: 100%;
-
+            width: 70%;
+        }
+        .bottom-right-ranking{
+            float: right;
+            height: 100%;
+            width: 30%;
         }
 
     }

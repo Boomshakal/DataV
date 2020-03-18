@@ -10,7 +10,7 @@ import Plan from '@/components/Plan/Plan'
 import Product from '@/components/Product/Product'
 import Quality from '@/components/Quality/Quality'
 // import CourseDetail from '@/components/Course/CourseDetail'
-// import Login from '@/components/Login/Login'
+import Login from '@/components/Login/Login'
 // import Cart from '@/components/Cart/Cart'
 // import Account from '@/components/Cart/Account'
 // import MyOrder from '@/components/Order/MyOrder'
@@ -31,7 +31,18 @@ export default new Router({
         {
             path: "/home",
             name: 'Home',
-            component: Home
+            component: Home,
+            meta:{
+                keepAlive:true
+            }
+        },
+        {
+            path: "/login",
+            name: 'Login',
+            component: Login,
+            meta:{
+                keepAlive:false
+            }
         },
         {
             path: "/plan",
