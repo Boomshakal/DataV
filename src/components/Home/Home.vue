@@ -1,8 +1,7 @@
 <template>
-
-    <el-carousel indicator-position="outside" height='600px'>
-        <el-carousel-item v-for="item in lunboImgs" :key="item.id">
-            <img :src="item.imgSrc" alt="">
+    <el-carousel indicatorPosition="outside" height="600px" ref="carousel">
+        <el-carousel-item class="carousel-item" v-for="item in lunboImgs" :key="item.id">
+            <img class="carousel-img" :src="item.imgSrc" alt="">
         </el-carousel-item>
     </el-carousel>
 </template>
@@ -34,17 +33,26 @@
                 tableData: null
             };
         },
-        methods: {
-        },
         created() {
             // console.log(localStorage);
         }
     };
 </script>
 
-<style lang="css" scoped>
+<style lang="less" scoped>
 
-    img {
+    .carousel-item {
         width: 100%;
+        height: 100%;
+        background: white;
+        display: flex;
+        justify-content: center;
+
     }
+
+    .carousel-img {
+        max-width: 100%;
+        max-height: 100%;
+    }
+
 </style>
