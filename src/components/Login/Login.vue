@@ -1,6 +1,7 @@
 <template>
     <div class="box">
-        <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1584528189218&di=7e3e999022618c21252d95c6ef907323&imgtype=0&src=http%3A%2F%2Fbpic.588ku.com%2Fback_pic%2F05%2F02%2F02%2F22594f94a72e6ca.JPG" alt="">
+        <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1584528189218&di=7e3e999022618c21252d95c6ef907323&imgtype=0&src=http%3A%2F%2Fbpic.588ku.com%2Fback_pic%2F05%2F02%2F02%2F22594f94a72e6ca.JPG"
+             alt="">
         <div class="login">
             <div class="login-title">
                 <p>帮助有志向的年轻人通过努力学习获得体面的工作和生活!</p>
@@ -45,13 +46,14 @@
                 let params = {
                     username: this.username,
                     password: this.password,
-                    geetest_challenge: this.validateResult.geetest_challenge,
-                    geetest_validate: this.validateResult.geetest_validate,
-                    geetest_seccode: this.validateResult.geetest_seccode
+                    // geetest_challenge: this.validateResult.geetest_challenge,
+                    // geetest_validate: this.validateResult.geetest_validate,
+                    // geetest_seccode: this.validateResult.geetest_seccode
                 }
                 this.$http.userLogin(params)
                     .then(res => {
-                        if (res.data.code == 1000) {
+                        console.log(res.data.token)
+                        if (res.status == 200) {
                             this.$router.go(-1)
 //                this.$router.push({
 //                    name:"Home"

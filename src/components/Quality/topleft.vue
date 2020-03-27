@@ -1,16 +1,16 @@
 <template>
     <div id="top-left-content">
 
-            <div class="total-ring">
-                <dv-charts :option="option1"/>
-            </div>
-            <div class="branch-ring">
-                <dv-charts class="first-test" :option="option2" />
+        <div class="total-ring">
+            <dv-charts :option="option1"/>
+        </div>
+        <div class="branch-ring">
+            <dv-charts class="first-test" :option="option2"/>
 
-                <dv-charts class="function-test" :option="option3" />
+            <dv-charts class="function-test" :option="option3"/>
 
-                <dv-charts class="appearance" :option="option4" />
-            </div>
+            <dv-charts class="appearance" :option="option4"/>
+        </div>
     </div>
 </template>
 
@@ -25,9 +25,12 @@
                             type: 'gauge',
                             startAngle: -Math.PI / 2,
                             endAngle: Math.PI * 1.5,
-                            arcLineWidth: 25,
+                            arcLineWidth: 10,
                             data: [
-                                {name: 'itemA', value: 65, gradient: ['#03c2fd', '#1ed3e5', '#2fded6']}
+                                {
+                                    name: 'itemA', value: 65, gradient: ['#03c2fd', '#1ed3e5', '#2fded6'],
+                                    lineWidth: 10
+                                }
                             ],
                             axisLabel: {
                                 show: false
@@ -48,7 +51,8 @@
                                     fill: '#1ed3e5',
                                     fontSize: 35
                                 }
-                            }
+                            },
+
                         }
                     ]
                 },
@@ -58,9 +62,12 @@
                             type: 'gauge',
                             startAngle: -Math.PI / 2,
                             endAngle: Math.PI * 1.5,
-                            arcLineWidth: 25,
+                            arcLineWidth: 10,
                             data: [
-                                {name: 'itemA', value: 65, gradient: ['#03c2fd', '#1ed3e5', '#2fded6']}
+                                {
+                                    name: 'itemA', value: 65, gradient: ['#03c2fd', '#1ed3e5', '#2fded6'],
+                                    linewidth: 10
+                                }
                             ],
                             axisLabel: {
                                 show: false
@@ -91,9 +98,9 @@
                             type: 'gauge',
                             startAngle: -Math.PI / 2,
                             endAngle: Math.PI * 1.5,
-                            arcLineWidth: 25,
+                            arcLineWidth: 10,
                             data: [
-                                {name: 'itemA', value: 65, gradient: ['#03c2fd', '#1ed3e5', '#2fded6']}
+                                {name: 'itemA', value: 65, gradient: ['#03c2fd', '#1ed3e5', '#2fded6'], linwwidth: 10}
                             ],
                             axisLabel: {
                                 show: false
@@ -124,9 +131,9 @@
                             type: 'gauge',
                             startAngle: -Math.PI / 2,
                             endAngle: Math.PI * 1.5,
-                            arcLineWidth: 25,
+                            arcLineWidth: 10,
                             data: [
-                                {name: 'itemA', value: 65, gradient: ['#03c2fd', '#1ed3e5', '#2fded6']}
+                                {name: 'itemA', value: 65, gradient: ['#03c2fd', '#1ed3e5', '#2fded6'], linewidth: 10}
                             ],
                             axisLabel: {
                                 show: false
@@ -170,19 +177,20 @@
         background-color: rgba(6, 30, 93, 0.5);
         border-top: 2px solid rgba(1, 153, 209, .5);
 
-        .total-ring{
+        .total-ring {
             float: left;
             height: 100%;
             width: 34%;
         }
-        .branch-ring{
+
+        .branch-ring {
             float: right;
             height: 100%;
             width: 66%;
             display: flex;
             flex-direction: row;
 
-            .first-test .function-test .appearance{
+            .first-test .function-test .appearance {
                 float: left;
                 width: 33%;
                 margin: 0;

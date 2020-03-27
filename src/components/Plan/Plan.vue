@@ -135,19 +135,19 @@
         .bottom-left {
             height: 100%;
             float: left;
-            width: 35%;
+            width: 0%;
         }
 
         .bottom-right {
             height: 100%;
             float: left;
-            width: 50%;
+            width: 100%;
         }
 
         .bottom-ranking {
             height: 100%;
             float: left;
-            width: 15%;
+            width: 0%;
         }
 
     }
