@@ -20,7 +20,7 @@ import 'element-ui/lib/theme-chalk/index.css';
 
 Vue.use(ElementUI);
 
-import '../static/global/gt.js'
+// import '../static/global/gt.js'
 
 
 // 导入axios
